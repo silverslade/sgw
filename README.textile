@@ -33,8 +33,8 @@ Just follow these points:
 
 h3. 1) Put in your main file the directive
 
-    <pre><code>include "sgw.h";</pre></code>
-    just after the Include "parser"; directive
+<pre><code>include "sgw.h";</pre></code>
+just after the Include "parser"; directive
 
 h3. 2) Now you can play a sound or visualize an image simply using these functions into your Inform
 
@@ -107,7 +107,7 @@ h3. AUDIO FUNCTIONS
 playSound(channel,sound,length,volume)    = plays a sound/music
 setplayMusic(sound,length,volume)         = enque a music to be played (not working)
 fadeoutMusic()                            = fades out current music
-fadetoMusic(sound,length,volume)          = 
+fadetoMusic(sound,length,volume)          = fades in current music 
 silenceAll()                              = silences all audio channels
 silenceChannel(channel)                   = silences the audio "channel"
 setVolume(val, channel)                   = set "val" for volume of the channel
@@ -120,8 +120,8 @@ entry points. If you need to define your own version of one or more of these
 entry points, you can define one or more of the following constants:
 
 <pre><code>CUSTOM_HANDLEGLKEVENT
-    CUSTOM_INITGLKWINDOW
-    CUSTOM_IDENTIFYGLKOBJECT</pre></code>
+CUSTOM_INITGLKWINDOW
+CUSTOM_IDENTIFYGLKOBJECT</pre></code>
 
 before including sgw.h
 
@@ -129,8 +129,8 @@ In your entry points, you can invoke the appropriate the SGW related functions
 calling the following routines:
 
 <pre><code>SGWHandleGlkEvent(event)
-    SGWInitGlkWindow(winrock)
-    SGWIdentifyGlkObject(phase,type,ref,rock)</pre></code>
+SGWInitGlkWindow(winrock)
+SGWIdentifyGlkObject(phase,type,ref,rock)</pre></code>
 
 Finally, from your InitGlkWindow entry point, you can call the 
 <pre><code>SGWDefineWindowColors()</pre></code>
