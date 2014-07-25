@@ -28,6 +28,7 @@ h2. License:
 This is an open source project (GNU GPL License).
 
 h2. How to use it
+
 Just follow these points:
 
 h3. 1) Put in your main file the directive
