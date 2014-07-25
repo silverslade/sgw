@@ -117,9 +117,7 @@ setVolume(val, channel)                   = set "val" for volume of the channel
 
 length is the no. of times that the sound/music will be played (-1 to play continuously)
 
-h3. 7) SGW automatically handles the HandleGlkEvent, InitGlkWindow and IdentifyGlkObject
-
-entry points. If you need to define your own version of one or more of these 
+SGW automatically handles the HandleGlkEvent, InitGlkWindow and IdentifyGlkObject entry points. If you need to define your own version of one or more of these 
 entry points, you can define one or more of the following constants:
 
 <pre><code>CUSTOM_HANDLEGLKEVENT
@@ -136,6 +134,8 @@ SGWInitGlkWindow(winrock)
 SGWIdentifyGlkObject(phase,type,ref,rock)</pre></code>
 
 Finally, from your InitGlkWindow entry point, you can call the 
+
 <pre><code>SGWDefineWindowColors()</pre></code>
+
 routine to set the defined colors for every other window
 
