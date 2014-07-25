@@ -49,8 +49,7 @@ Constants before you include the "sgw.h" library (to override the default settin
    SCSOFT     Soft text color
    SCEMPH     Emphatized text color
    SCHEAD     Headers color
-   SCINPU     Input line color
-</pre></code>   
+   SCINPU     Input line color</pre></code>   
 
 (you can use the $rrggbb format for specify hexadecimal rgb color codes)
 
