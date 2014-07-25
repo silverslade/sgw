@@ -1,0 +1,137 @@
+h1. SGW Simple Glulxe Wrapper for Inform
+
+This library is a simple and small glulxe wrapper, created for a novice inform programming level. With this library it's possible to visualize an image or simply to play a sound (or a music) by using a small set of functions that wrap the glulx functions.
+There are also text styles ready to be used.
+It's possible to convert a z-code adventure to a glulx adventure with multimedia support, in few steps.
+ 
+You can use 3 audio channels:
+
+* music : for the music channel
+* chan1 : channel 1 for audio (sound effects)
+* chan2 : channel 2 for audio (sound effects)
+
+
+h2. Main Features
+
+* simple and clean
+* it's possible to convert any zcode (inform6) adventure to a glulx adventure
+
+h2. Authors
+
+* Alessandro Schillaci
+* Paolo Lucchesi
+* Vincenzo Scarpa
+* Paolo Maroncelli
+
+h2. License:
+
+This is an open source project (GNU GPL License).
+
+h2. How to use it
+Just follow these points:
+
+h3. 1) Put in your main file the directive
+
+    <pre><code>include "sgw.h";</pre></code>
+    just after the Include "parser"; directive
+
+h3. 2) Now you can play a sound or visualize an image simply using these functions into your Inform
+
+    code: viewImageLeft (or viewImageCenter or viewImageRight) and playSound()
+
+h3. 3) You can customize colors settings or image window height, defining the following 
+
+Constants before you include the "sgw.h" library (to override the default setting):
+<pre><code>SGWHEIGHT  Image window height, in pixels
+   SCBACK     Background color
+   SCTEXT     Main text color
+   SCSOFT     Soft text color
+   SCEMPH     Emphatized text color
+   SCHEAD     Headers color
+   SCINPU     Input line color
+</pre></code>   
+
+(you can use the $rrggbb format for specify hexadecimal rgb color codes)
+
+For example
+<pre><code>Constant SGWHEIGHT 250;</pre></code>
+sets the image window height to 250 pixels, while
+<pre><code>Constant SCBACK $440044;</pre></code>
+sets the background to a dark violet 
+
+h3. 4) If you want to use ONLY the sounds (no graphics) or ONLY the images you 
+ 
+define one of these constants
+
+<pre><code>Constant NOGRAPHICS;
+Constant NOSOUND;</pre></code>
+
+Before you Include the sgw.h library
+
+h3. 5) If you want to use the text styles (examples):
+
+<pre><code>with description [;
+    print "Text Style ", (s_emph) "Emphasized", "^";
+    print "Text Style ", (s_bold) "Bold", " (like Inform)^";
+    print "Text Style ", (s_pref) "Preformatted", "^";
+    print "Text Style ", (s_fixed) "Fixed", " (like Inform)^";
+    print "Text Style ", (s_head) "Header", "^";
+    print "Text Style ", (s_subhead) "Subheader", "^";
+    print "Text Style ", (s_alert) "Alert", "^";
+    print "Text Style ", (s_reverse) "Reverse", " (like Inform)^";
+    print "Text Style ", (s_note) "Note", "^";
+    print "Text Style ", (s_underline) "Underline/Italic", " (like Inform)^";
+    print "Text Style ", (s_block) "BlockQuote", "^";
+    print "Text Style ", (s_input) "Input", "^";
+],
+</pre></code>
+
+These are also valid in z-code
+(you can still use the classic "style bold", "style roman", etc. inform directives)
+
+h3. 6) You can use these new simple functions in your game, also :
+
+h3. GRAPHIC FUNCTIONS
+
+clearMainWindow()                     = clears the main window
+closeAllWindows()                     = closes all graphic windows
+initializeSGW(h)                      = graphic window dimension is set to h=height
+viewImageLeft(image)                  = shows the "image" in the graphic window on the Left
+viewImageCenter(image, image_width)   = shows the "image" in the graphic window (Centered)
+viewImageRight(image, image_width)    = shows the "image" in the graphic window on the Right
+
+
+h3. AUDIO FUNCTIONS
+
+playSound(channel,sound,length,volume)    = plays a sound/music
+setplayMusic(sound,length,volume)         = enque a music to be played (not working)
+fadeoutMusic()                            = fades out current music
+fadetoMusic(sound,length,volume)          = 
+silenceAll()                              = silences all audio channels
+silenceChannel(channel)                   = silences the audio "channel"
+setVolume(val, channel)                   = set "val" for volume of the channel
+
+length is the no. of times that the sound/music will be played (-1 to play continuously)
+
+h3. 7) SGW automatically handles the HandleGlkEvent, InitGlkWindow and IdentifyGlkObject
+
+entry points. If you need to define your own version of one or more of these 
+entry points, you can define one or more of the following constants:
+
+<pre><code>CUSTOM_HANDLEGLKEVENT
+    CUSTOM_INITGLKWINDOW
+    CUSTOM_IDENTIFYGLKOBJECT</pre></code>
+
+before including sgw.h
+
+In your entry points, you can invoke the appropriate the SGW related functions 
+calling the following routines:
+
+<pre><code>SGWHandleGlkEvent(event)
+    SGWInitGlkWindow(winrock)
+    SGWIdentifyGlkObject(phase,type,ref,rock)</pre></code>
+
+Finally, from your InitGlkWindow entry point, you can call the 
+<pre><code>SGWDefineWindowColors()</pre></code>
+routine to set the defined colors for every other window
+
