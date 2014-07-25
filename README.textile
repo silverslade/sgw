@@ -84,8 +84,7 @@ h3. 5) If you want to use the text styles (examples):
     print "Text Style ", (s_underline) "Underline/Italic", " (like Inform)^";
     print "Text Style ", (s_block) "BlockQuote", "^";
     print "Text Style ", (s_input) "Input", "^";
-],
-</pre></code>
+]</pre></code>
 
 These are also valid in z-code
 (you can still use the classic "style bold", "style roman", etc. inform directives)
