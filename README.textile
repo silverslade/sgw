@@ -43,6 +43,7 @@ h3. 2) Now you can play a sound or visualize an image simply using these functio
 h3. 3) You can customize colors settings or image window height, defining the following 
 
 Constants before you include the "sgw.h" library (to override the default setting):
+
 <pre><code>SGWHEIGHT  Image window height, in pixels
    SCBACK     Background color
    SCTEXT     Main text color
@@ -53,10 +54,14 @@ Constants before you include the "sgw.h" library (to override the default settin
 
 (you can use the $rrggbb format for specify hexadecimal rgb color codes)
 
-For example
+For example:
+
 <pre><code>Constant SGWHEIGHT 250;</pre></code>
+
 sets the image window height to 250 pixels, while
+
 <pre><code>Constant SCBACK $440044;</pre></code>
+
 sets the background to a dark violet 
 
 h3. 4) If you want to use ONLY the sounds (no graphics) or ONLY the images you 
